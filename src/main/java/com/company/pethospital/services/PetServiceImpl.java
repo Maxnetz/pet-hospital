@@ -18,4 +18,19 @@ public class PetServiceImpl implements PetService {
         return repository.findAll();
     }
 
+    @Override
+    public Pet findPetById(Long id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Pet createPet(Pet pet) {
+        return repository.save(pet);
+    }
+
+    @Override
+    public void deletePet(Long id) {
+        repository.deleteById(id);
+    }
+
 }

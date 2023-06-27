@@ -13,13 +13,10 @@ import java.util.List;
 @Setter
 public class Owner implements Serializable {
     @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private Integer contact_number;
-
-    @OneToMany(mappedBy = "owner")
-    private List<Pet> pets;
 
     public void setId(Long id) {
         this.id = id;
