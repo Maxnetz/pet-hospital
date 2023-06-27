@@ -11,29 +11,34 @@
 source: [https://dbdiagram.io/d/64995d3302bd1c4a5e10cd2e](https://dbdiagram.io/d/64995d3302bd1c4a5e10cd2e)
 
 ```
-com
- +- packagename
-     +- projectname
+ +- pet-hospital
+     +- com.company.pethospital
          +- PetHospitalApplication.java
          |
          +- models
-         |   +- Pet.java
+         |   +- Billing.java
+         |   +- MedicalRecord.java
          |   +- Owner.java
-			   |   +- MedicalRecord.java
-		     |   +- Owner.java
-				 |   +- Billing.java
+         |   +- Pet.java
          |
          +- controllers
-         |   +- OrderController.java
-         |   +- UserController.java
+         |   +- HomeController.java
+         |   +- BillingController.java
+         |   +- MedicalRecordController.java
+         |   +- OwnerController.java
+         |   +- PetController.java
          |
          +- services
-         |    +- UserService.java
-         |    +- OrderService.java
+         |    +- OwnerService.java
+         |    +- OwnerServiceImpl.java
+         |    +- PetService.java
+         |    +- PetServiceImpl.java
          |
          +- repositories
-         |    +- UserRepository.java
-         |    +- OrderRepository.java
+         |   +- BillingRepository.java
+         |   +- MedicalRecordRepository.java
+         |   +- OwnerRepository.java
+         |   +- PetRepository.java
          |
          +- configs
          |
