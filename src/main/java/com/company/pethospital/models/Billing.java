@@ -1,79 +1,26 @@
 package com.company.pethospital.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "billing")
-public class Billing {
+@Getter
+@Setter
+public class Billing implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    @Column(name = "owner_id", unique = true)
-    private Integer ownerId;
+    private Long owner_id;
 
-    @Column(name = "invoice_date")
-    private Date invoiceDate;
+    private Long total_amount;
 
-    @Column(name = "total_amount")
-    private Integer totalAmount;
-
-    @Column(name = "created_at", nullable = false)
-    private Timestamp createdAt;
-
-    public Billing() {
-        // Default constructor required by JPA
-    }
-
-    public Billing(Integer ownerId, Date invoiceDate, Integer totalAmount, Timestamp createdAt) {
-        this.ownerId = ownerId;
-        this.invoiceDate = invoiceDate;
-        this.totalAmount = totalAmount;
-        this.createdAt = createdAt;
-    }
-
-    // Getters and Setters
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getOwnerId() {
-        return ownerId;
-    }
-
-    public void setOwnerId(Integer ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public Date getInvoiceDate() {
-        return invoiceDate;
-    }
-
-    public void setInvoiceDate(Date invoiceDate) {
-        this.invoiceDate = invoiceDate;
-    }
-
-    public Integer getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(Integer totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
     }
 }
