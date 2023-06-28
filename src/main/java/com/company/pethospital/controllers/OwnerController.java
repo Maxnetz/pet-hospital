@@ -14,33 +14,33 @@ import java.util.List;
 public class OwnerController {
 
     @Autowired
-    private OwnerService OwnerService;
+    private OwnerService ownerService;
 
     @GetMapping("/find-all-owners")
     public ResponseEntity<List<Owner>> findAll() {
-        List<Owner> List = OwnerService.findAllOwners();
+        List<Owner> List = ownerService.findAllOwners();
         return new ResponseEntity<>(List, HttpStatus.OK);
     }
 
     @GetMapping("/find-by-owner/{id}")
     public ResponseEntity<Owner> findById(@PathVariable("id") Long id) {
-        Owner owner = OwnerService.findOwnerById(id);
+        Owner owner = ownerService.findOwnerById(id);
         return new ResponseEntity<>(owner, HttpStatus.OK);
     }
 
     @PostMapping("/create-owner")
     public Owner create(@RequestBody Owner owner) {
-        return OwnerService.createOwner(owner);
+        return ownerService.createOwner(owner);
     }
 
     @PutMapping("/update-owner/{id}")
     public Owner update(@PathVariable("id") Long id, @RequestBody Owner owner) {
         owner.setId(id);
-        return OwnerService.createOwner(owner);
+        return ownerService.createOwner(owner);
     }
 
     @DeleteMapping("/delete-owner/{id}")
     public void delete(@PathVariable("id") Long id) {
-        OwnerService.deleteOwner(id);
+        ownerService.deleteOwner(id);
     }
 }
