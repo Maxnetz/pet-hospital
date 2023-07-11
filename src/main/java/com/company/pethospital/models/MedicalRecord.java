@@ -28,5 +28,8 @@ public class MedicalRecord {
     private void prePersist() {
         invoiceDate = new Date(System.currentTimeMillis());
     }
+
+    public void setId(Long id) {
+    }
 }
 

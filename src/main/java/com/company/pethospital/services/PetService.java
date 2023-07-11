@@ -1,15 +1,31 @@
 package com.company.pethospital.services;
 
 import com.company.pethospital.models.Pet;
+import com.company.pethospital.repositories.PetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface PetService {
-    List<Pet> findAllPets();
+@Service
+public class PetService {
 
-    Pet findPetById(Long id);
+    @Autowired
+    private PetRepository repository;
 
-    Pet createPet(Pet pet);
+    public List<Pet> findAllPets() {
+        return repository.findAll();
+    }
 
-    void deletePet(Long pet);
+    public Pet findPetById(Long id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    public Pet createPet(Pet pet) {
+        return repository.save(pet);
+    }
+
+    public void deletePet(Long id) {
+        repository.deleteById(id);
+    }
 }

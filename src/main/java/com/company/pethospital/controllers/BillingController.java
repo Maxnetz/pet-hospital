@@ -16,7 +16,7 @@ public class BillingController {
     @Autowired
     private BillingService billingService;
 
-    @GetMapping("/find-all-bills")
+    @GetMapping("/")
     public List<Billing> findAll() {
         return billingService.findAllBills();
     }
